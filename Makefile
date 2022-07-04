@@ -10,10 +10,10 @@ init:
 unity.o: $(UNITY)/unity.c $(UNITY)/unity.h
 	$(CC) $(CFLAGS) -c $(UNITY)/unity.c -o build/unity.o
 
-sortalgs.o: sortalgs.h sortalgs.c
+sortalgs.o: sortalgs.c sortalgs.h
 	$(CC) $(CFLAGS) -c sortalgs.c -o build/sortalgs.o
 
-utils.o: utils.h utils.c
+utils.o: utils.c utils.h
 	$(CC) $(CFLAGS) -c utils.c -o build/utils.o
 
 test.o: test.c sortalgs.h utils.h

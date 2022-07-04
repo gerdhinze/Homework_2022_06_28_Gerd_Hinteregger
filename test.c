@@ -13,8 +13,8 @@ int *unsort_data = NULL;
 
 void setUp(void)
 {
-int create_file_with_random_numbers(char *filename, size_t N);
-int *load_data_from(char *unsort_data, size_t N);
+create_file_with_random_numbers(filename, N);
+unsort_data = load_data_from(filename, N);
 }
 
 void tearDown(void)
@@ -35,7 +35,7 @@ void test_bubble_sort(void)
     long microseconds = end.tv_usec - begin.tv_usec;
     double elapsed = seconds + microseconds*1e-6;
     
-    printf("Time measured: %.3f seconds.\n", elapsed);
+    printf("Time measured: %.6f seconds.\n", elapsed);
 }
 void test_selection_sort(void)
 {
@@ -50,11 +50,22 @@ void test_selection_sort(void)
     long microseconds = end.tv_usec - begin.tv_usec;
     double elapsed = seconds + microseconds*1e-6;
     
-    printf("Time measured: %.3f seconds.\n", elapsed);
+    printf("Time measured: %.6f seconds.\n", elapsed);
 }
 void test_insertion_sort(void)
 {
+    // Start measuring time
+    struct timeval begin, end;
+    gettimeofday(&begin, 0);
+    
     array_insertion_sort(unsort_data, N);
+    
+    gettimeofday(&end, 0);
+    long seconds = end.tv_sec - begin.tv_sec;
+    long microseconds = end.tv_usec - begin.tv_usec;
+    double elapsed = seconds + microseconds*1e-6;
+    
+    printf("Time measured: %.6f seconds.\n", elapsed);
 }
 void test_merge_sort(void)
 {
@@ -69,7 +80,7 @@ void test_merge_sort(void)
     long microseconds = end.tv_usec - begin.tv_usec;
     double elapsed = seconds + microseconds*1e-6;
     
-    printf("Time measured: %.3f seconds.\n", elapsed);
+    printf("Time measured: %.6f seconds.\n", elapsed);
 }
 void test_quick_sort(void)
 {
@@ -84,7 +95,7 @@ void test_quick_sort(void)
     long microseconds = end.tv_usec - begin.tv_usec;
     double elapsed = seconds + microseconds*1e-6;
     
-    printf("Time measured: %.3f seconds.\n", elapsed);
+    printf("Time measured: %.6f seconds.\n", elapsed);
 }
 
 int main(void)

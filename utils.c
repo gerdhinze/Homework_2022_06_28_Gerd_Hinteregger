@@ -26,11 +26,10 @@ int create_file_with_random_numbers(char *filename, size_t n)
  
     for(int i = 0; i<n; i++)
     {
-        printf("%d\n", rand() % 1000);
+        fprintf(file_ptr, "%d\n", rand() % 1000);
     }
 
     fclose(file_ptr);
-
     return EXIT_SUCCESS;
 }
 
