@@ -72,7 +72,7 @@ void array_insertion_sort(int data[], int n)
 void merge(int data[], int l, int m, int r)
 {
     printf("merge: l=%d m=%d r=%d  ", l, m, r);
-    array_print(data, 6);
+    //array_print(data, 6);
     
     int i, j, k;
     int n1 = m - l + 1;
@@ -151,6 +151,30 @@ void array_merge_sort(int data[], int n)
 }
 
 //Quicksort
+int partition (int data[], int low, int high)
+{
+    printf("partition: low=%d high=%d\n", low, high);
+    
+    int pivot = data[high]; // pivot
+    int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
+ 
+    for (int j = low; j <= high - 1; j++)
+    {
+        // If current element is smaller than the pivot
+        if (data[j] < pivot)
+        {
+            i++; // increment index of smaller element
+            swap(&data[i], &data[j]);
+        }
+    }
+    swap(&data[i + 1], &data[high]);
+    return (i + 1);
+}
+ 
+/* The main function that implements QuickSort
+arr[] --> Array to be sorted,
+low --> Starting index,
+high --> Ending index */
 void quick_sort(int data[], int low, int high)
 {
     if (low < high)
