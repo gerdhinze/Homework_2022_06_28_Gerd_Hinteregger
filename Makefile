@@ -16,11 +16,11 @@ sortalgs.o: sortalgs.h sortalgs.c
 utils.o: utils.h utils.c
 	$(CC) $(CFLAGS) -c utils.c -o build/utils.o
 
-test.o: test.c
+test.o: test.c sortalgs.h utils.h
 	$(CC) $(CFLAGS) -I $(UNITY) -c test.c -o build/test.o
 
-test: init unity.o sortalgs.o test.o
-	$(CC) $(CFLAGS) build/unity.o build/sortalgs.o build/test.o -o build/test
+test: init unity.o sortalgs.o utils.o test.o
+	$(CC) $(CFLAGS) build/unity.o build/sortalgs.o build/utils.o build/test.o -o build/test
 	build/test
 
 clean:
