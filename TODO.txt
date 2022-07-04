@@ -1,0 +1,94 @@
+Homework 2022-06-28: Configuration Management, Data Structures & Algorithms
+-------------------------------------------------------------------------------
+
+Sie sollen die Geschwindigkeit verschiedener Sortieralgorithmen miteinander 
+vergleichen.
+
+A) Sortieralgorithmen [1 Punkt] 
+    Erstellen Sie ein Headerfile "sortalgs.h" in dem die folgenden Funktionen 
+    deklariert werden.
+    void array_bubble_sort(int data[], int n);
+    void array_selection_sort(int data[], int n);
+    void array_insertion_sort(int data[], int n);
+    void array_merge_sort(int data[], int n);
+    void array_quick_sort(int data[], int n);
+    Implementieren Sie diese Funktionen in einem File mit dem Namen "sortalgs.c".
+
+B) Utility Functions [3 Punkte]
+    Um die Sortieralgorithmen gut testen zu können, sollen folgende Funktionen ein 
+    einem Headerfile "utils.h" deklariert werden:
+    void array_print(int data[], size_t n);
+        Gibt ein Array gegebener länge auf der Konsole aus.
+    int create_file_with_random_numbers(char *filename, size_t n)
+        Erstellt ein Textfile mit n Zufallszahlen [0,10000), eine Zahl pro Zeile.
+    int delete_file(char *filename)
+        Löscht ein File aus dem Filesystem (siehe stdio.h remove())
+    int *load_data_from(char *filename, size_t n)
+        Läd die Integerzahlen aus einem Textfile in ein dynamisch angelegtes 
+        Array am Heap. Der Pointer auf das Array wird zurück gegeben.
+    Implementieren Sie diese Funktionen in einem File mit dem Namen "utils.c".     
+
+C) Profiling [2 Punkte]
+    Schreiben Sie automatisierte Tests in einem File mit dem Namen "test.c":
+    void setUp(void)
+        Erzeugt ein Textfile mit Zufallszahlen gegebener Länge.
+        Läd die Zufallszahlen in ein Array am Heap.
+    void tearDown(void)
+        Gibt das Array am Heap wieder frei.
+        Löscht das Testfile mit Zufallszahlen.         
+    void test_bubble_sort(void)
+        Ruft  array_bubble_sort() mit einem Array gegebener Länge auf und misst 
+        die Dauer der Ausführung.
+    void test_selection_sort(void)
+        Ruft  array_selection_sort() mit einem Array gegebener Länge auf und misst 
+        die Dauer der Ausführung.
+    void test_insertion_sort(void)
+        Ruft  array_insertion_sort() mit einem Array gegebener Länge auf und misst 
+        die Dauer der Ausführung.
+    void test_merge_sort(void)
+        Ruft  array_merge_sort() mit einem Array gegebener Länge auf und misst 
+        die Dauer der Ausführung.
+    void test_quick_sort(void)
+        Ruft  array_quick_sort() mit einem Array gegebener Länge auf und misst 
+        die Dauer der Ausführung.
+
+    Führen Sie diese Tests für n=1000, 10000, 100000 Zufallszahlen aus und vergleichen 
+    Sie die Ergebnisse in einer Tabelle.
+    Die gemessenen Ergebnisse sollen auf der Konsole ausgegeben werden.
+    Führen Sie jede Messung 3 mal aus und berechnen Sie den Mittelwert.
+    Die Tablelle soll in einem Textfile "table.txt" angelegt werden.
+    Zusätzlich sollen die Parameter der Messung (Rechner + Speicher, VM Settings)
+    mit angegeben werden.
+    Für zusätzliche Messungen und ein Diagramm (im PNG Format) gibt es bis zu 3 Zusatzpunkte. 
+
+D) Build Automation [2 Punkte]
+    Erstellen Sie ein Makefile, das alle C Files zu Object-Files kompilliert und dann 
+    zu einem Executable linkt.
+    Vergessen Sie nicht das Test-Framework zu ihrem Projekt hinzuzufügen.
+    Mit "make" soll das Test-Executable gebaut und ausgefürt werden. 
+          
+E) Source Code Versioning [2 Punkt] 
+    Verwenden Sie von Beginn an ein lokales Git Repository (.git) in ihrem Projekt-
+    Folder. Committen Sie jedes neue Feature, jeden Bugfix und jedes Refactoring.
+    Geben Sie das .git Verzeichnis mit dem gezippten Projekt-Folder mit ab. 
+
+
+Allgemeines
+---------------------------------------------------------------------
+
+1. Project Name
+Nennen Sie das Projekt (und das abgegebene ZIP File) so um, dass
+statt "MyName" ihr Name verwendet wird. Beachten Sie, dass Projekten
+die nicht der Namenskonvention entsprechen 50% der Punkte abgezogen
+werden!
+
+2. Manuelles Review
+Bei der Notenvergabe wird für jede Lösung ein manuelles Code-Review
+durchgeführt. Die Punkteabzüge können in einer Einsichtnahme besprochen 
+werden.
+
+3. Compiler Errors
+Implementierungen die nicht kompilieren, werden nicht gewertet.
+
+4. Offensichtlich abgeschriebene oder kopierte Lösungen werden negativ 
+(mit 0 Punkten) beurteilt.
