@@ -2,6 +2,7 @@ Prozessor:      Intel(R) Core(TM) i5-9300H 2.4GHz
 RAM-Speicher:   8,00 GB (7,88 GB verwendbar)
 VM-Settings:    4096 MB
 
+Die angeführten Messwerte sind in [Sekunden] gemessen.
 
 N=1000
 Bubblesort     |       Selectionsort       |       Insertionsort       |       Mergesort       |       Quicksort
