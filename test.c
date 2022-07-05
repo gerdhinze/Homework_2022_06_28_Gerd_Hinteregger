@@ -6,7 +6,7 @@
 #include "sortalgs.h"
 #include "utils.h"
 
-size_t N = 100000;
+size_t N = 50000;
 char *filename = "data.txt";
 int *unsort_data = NULL;
 
